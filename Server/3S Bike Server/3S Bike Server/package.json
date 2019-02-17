@@ -5,5 +5,8 @@
   "main": "app.js",
   "author": {
     "name": ""
+  },
+  "dependencies": {
+    "mysql": "^2.16.0"
   }
 }

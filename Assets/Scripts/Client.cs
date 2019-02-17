@@ -19,7 +19,7 @@ public class Client : MonoBehaviour {
             client = new TcpClient(AddressFamily.InterNetwork);
             IPAddress ipAddress = IPAddress.Parse("52.15.62.13");
             Debug.Log(ipAddress.ToString());
-            client.Connect(ipAddress, 11937);
+            client.Connect(ipAddress, 12453);
             writer = new StreamWriter(client.GetStream());
             Debug.Log("connected");
         }

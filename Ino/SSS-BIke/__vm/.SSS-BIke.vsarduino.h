@@ -77,5 +77,11 @@ typedef void *__builtin_va_list;
 #define pgm_read_ptr(address_short)   short()
 
 #include "SSS-BIke.ino"
+#include "Client.ino"
+#include "Current.ino"
+#include "GPS.ino"
+#include "IMU.ino"
+#include "RPM.ino"
+#include "battery.ino"
 #endif
 #endif

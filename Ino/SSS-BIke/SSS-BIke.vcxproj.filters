@@ -16,6 +16,12 @@
   </ItemGroup>
   <ItemGroup>
     <None Include="SSS-BIke.ino" />
+    <None Include="Current.ino" />
+    <None Include="GPS.ino" />
+    <None Include="IMU.ino" />
+    <None Include="RPM.ino" />
+    <None Include="Client.ino" />
+    <None Include="battery.ino" />
   </ItemGroup>
   <ItemGroup>
     <ClInclude Include="__vm\.SSS-BIke.vsarduino.h">
