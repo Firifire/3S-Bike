@@ -18,6 +18,11 @@ void rpmInit()
 	}
 }
 
+void rpmReset(){
+  rpmDuration[0] = 1;
+  rpmDuration[1] = 1;
+}
+
 void rpmUpdate()
 {
 	//Wind (Has 3 steps)
@@ -34,6 +39,7 @@ void rpmUpdate()
 			for (int i = 0; i < sizeRPM; i++) {
 				rpmVal += rpm[0][i];
 			}
+      rpmValue[0] = static_cast<int>(rpmVal / sizeRPM);
 #if debug == true
       Serial.print("Wind Mill: ");
 			Serial.println(rpmVal / sizeRPM);
@@ -49,6 +55,7 @@ void rpmUpdate()
 		for (int i = 0; i < sizeRPM; i++) {
 			rpmVal += rpm[0][i];
 		}   
+    rpmValue[0] = static_cast<int>(rpmVal / sizeRPM);
 #if debug == true
     Serial.print("Wind Mill: ");
     Serial.println(rpmVal / sizeRPM);
@@ -70,6 +77,7 @@ void rpmUpdate()
 			for (int i = 0; i < sizeRPM; i++) {
 				rpmVal += rpm[1][i];
 			}
+     rpmValue[1] = static_cast<int>(rpmVal / sizeRPM);
 #if debug == true
       Serial.print("Dynamo: ");
       Serial.println(rpmVal / sizeRPM);
@@ -85,12 +93,13 @@ void rpmUpdate()
 		for (int i = 0; i < sizeRPM; i++) {
 			rpmVal += rpm[1][i];
 		}
+   rpmValue[1] = static_cast<int>(rpmVal / sizeRPM);
 #if debug == true
     Serial.print("Dynamo: ");
 		Serial.println(rpmVal / sizeRPM);
 #endif
 	}
 	rpmDuration[1] += delayTime;
-
+  durationMain += delayTime;
 	delay(delayTime);
 }

@@ -1,8 +1,7 @@
 
 const int mVperAmp = 185; // 5A module
 const int ACSoffset = 2500;
-double Voltage;
-double ampere[curSenSize];
+float Voltage;
 
 
 void currentSensorInit() {

@@ -43,44 +43,31 @@ void connectionInit() {
 	delay(2000);
 	readData();
 
-	myGsm.println("AT+CIPSTART=\"TCP\",\"0.tcp.ngrok.io\",\"15868\"");
+	myGsm.println("AT+CIPSTART=\"TCP\",\"0.tcp.ngrok.io\",\"12516\"");
 	delay(5000);
 	readData();
 	delay(5000);
-
-	myGsm.println("AT+CIPSEND");
-	delay(2000);
-	readData();
 }
 
 void sendData() {
-	bool isWriting = false;
-	char c = ' ';
-	// Keep reading from SIM800 and send to Arduino Serial Monitor
-	while (myGsm.available())
-	{
-		c = myGsm.read();
-		Serial.write(c);
-	}
-	// Keep reading from Arduino Serial Monitor and send to SIM900A
-	while (Serial.available())
-	{
-		isWriting = true;
-		c = Serial.read();
-		//    myGsm.write(c); 
-	}
-	if (isWriting) {
-		myGsm.println("AT+CIPSEND");
-		delay(200);
+    myGsm.println("AT+CIPSEND");
+    delay(2000);
 		readData();
-
-		myGsm.println("LAT:3 | LON:101");
+    myGsm.print("S");
+    myGsm.print(rpmValue[0]);
+    myGsm.print("|");
+     myGsm.print(rpmValue[1]);
+    myGsm.print("|");
+    myGsm.print(ampere[0]);
+    myGsm.print("|");
+		myGsm.print(ampere[1]);
+    myGsm.print("|");
+    myGsm.print(ampere[2]);
+    myGsm.println("<EOF>");
 		delay(300);
-		isWriting = false;
-		readData
-		();
 		myGsm.write(0x1A);
-	}
+    delay(2000);
+    readData();
 }
 
 void readData() {
